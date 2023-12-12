@@ -1,24 +1,63 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# テーブル設計
 
-Things you may want to cover:
+## users テーブル
 
-* Ruby version
+| Column             | Type   | Options     |
+| ------------------ | ------ | ----------- |
+| nickname           | string | null: false |
+| email              | string | null: false |
+| encrypted_password | string | null: false |
+| last_name_kanji    | string | null: false |
+| first_name_kanji   | string | null: false |
+| last_name_kana     | string | null: false |
+| first_name_kana    | string | null: false |
+| birth_year         | date   | null: false |
+| birth_month        | date   | null: false |
+| birth_day          | date   | null: false |
 
-* System dependencies
+### Association
 
-* Configuration
+- has_many :items
+- has_many :orders
 
-* Database creation
+## items テーブル
 
-* Database initialization
+| Column          | Type      | Options                        |
+| --------------- | --------- | ------------------------------ |
+| name            | string    | null: false                    |
+| description     | text      | null: false                    |
+| category        | string    | null: false                    |
+| condition       | string    | null: false                    |     
+| shipping_charge | string    | null: false                    |  
+| shipping_from   | string    | null: false                    |  
+| shipping-day    | date      | null: false                    | 
+| price           | integer   | null: false                    | 
+| user            | reference | null: false, foreign_key: true |
 
-* How to run the test suite
+### Association
 
-* Services (job queues, cache servers, search engines, etc.)
+- belongs_to :user
+- belongs_to :order
 
-* Deployment instructions
 
-* ...
+## orders テーブル
+
+| Column         | Type       | Options                        |
+| -------------- | ---------- | ------------------------------ |
+| post_cord      | integer    |                                |
+| prefectures    | string     | null: false                    |
+| city           | string     | null: false                    |
+| street_address | string     | null: false                    |
+| building_name  | string     | null: false                    |
+| phone_number   | integer    | null: false                    |
+| user           | references | null: false, foreign_key: true |
+| items          | references | null: false, foreign_key: true |
+
+### Association
+
+- belongs_to :user
+- belongs_to :item
+
+※クレジットカード情報はDBには保存しない。
