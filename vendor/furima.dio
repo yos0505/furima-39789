@@ -38,7 +38,7 @@
                     <mxGeometry y="296" width="260" height="30" as="geometry"/>
                 </mxCell>
                 <mxCell id="18" value="itemsテーブル" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;align=center;fontSize=14;" vertex="1" parent="1">
-                    <mxGeometry x="470" y="140" width="230" height="296" as="geometry"/>
+                    <mxGeometry x="470" y="110" width="230" height="326" as="geometry"/>
                 </mxCell>
                 <mxCell id="19" value="name (string型,NOT NULL)&#10;" style="text;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;" vertex="1" parent="18">
                     <mxGeometry y="26" width="230" height="30" as="geometry"/>
@@ -58,7 +58,7 @@
                 <mxCell id="29" value="shipping_from (string型,NOT NULL)&#10;" style="text;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;" vertex="1" parent="18">
                     <mxGeometry y="176" width="230" height="30" as="geometry"/>
                 </mxCell>
-                <mxCell id="36" value="shipping-day (integer型,NOT NULL)&#10;" style="text;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;labelBorderColor=none;" vertex="1" parent="18">
+                <mxCell id="36" value="shipping-day (string型,NOT NULL)&#10;" style="text;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;labelBorderColor=none;" vertex="1" parent="18">
                     <mxGeometry y="206" width="230" height="30" as="geometry"/>
                 </mxCell>
                 <mxCell id="39" value="price (integer型,NOT NULL)&#10;" style="text;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;labelBorderColor=none;fontColor=default;" vertex="1" parent="18">
@@ -67,7 +67,10 @@
                 <mxCell id="41" value="user (reference型,NOT NULL,外部キー)" style="text;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;labelBorderColor=none;fontColor=default;" vertex="1" parent="18">
                     <mxGeometry y="266" width="230" height="30" as="geometry"/>
                 </mxCell>
-                <mxCell id="40" style="edgeStyle=none;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;fontColor=default;endArrow=ERmany;endFill=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;startArrow=ERone;startFill=0;endSize=26;startSize=25;" edge="1" parent="1" source="16" target="39">
+                <mxCell id="59" value="oder (reference型,NOT NULL,外部キー)" style="text;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;labelBorderColor=none;fontColor=default;" vertex="1" parent="18">
+                    <mxGeometry y="296" width="230" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="40" style="edgeStyle=none;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;fontColor=default;endArrow=ERmany;endFill=0;entryX=-0.009;entryY=0.5;entryDx=0;entryDy=0;startArrow=ERone;startFill=0;endSize=26;startSize=25;entryPerimeter=0;" edge="1" parent="1" source="16" target="41">
                     <mxGeometry relative="1" as="geometry">
                         <mxPoint x="450" y="390" as="targetPoint"/>
                     </mxGeometry>
@@ -75,7 +78,7 @@
                 <mxCell id="42" value="ordersテーブル" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;align=center;fontSize=14;labelBorderColor=none;fontColor=default;" vertex="1" parent="1">
                     <mxGeometry x="200" y="530" width="260" height="266" as="geometry"/>
                 </mxCell>
-                <mxCell id="43" value="post_cord (string型,NOT NULL)&#10;" style="text;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;labelBorderColor=none;fontColor=default;" vertex="1" parent="42">
+                <mxCell id="43" value="post_cord (integer型,NOT NULL)&#10;" style="text;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;labelBorderColor=none;fontColor=default;" vertex="1" parent="42">
                     <mxGeometry y="26" width="260" height="30" as="geometry"/>
                 </mxCell>
                 <mxCell id="44" value="prefectures (string型,NOT NULL)&#10;" style="text;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;labelBorderColor=none;fontColor=default;" vertex="1" parent="42">
@@ -90,27 +93,30 @@
                 <mxCell id="47" value="building_name (string型,NOT NULL)&#10;" style="text;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;labelBorderColor=none;fontColor=default;" vertex="1" parent="42">
                     <mxGeometry y="146" width="260" height="30" as="geometry"/>
                 </mxCell>
-                <mxCell id="48" value="phone_number (string型,NOT NULL)" style="text;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;labelBorderColor=none;fontColor=default;" vertex="1" parent="42">
+                <mxCell id="48" value="phone_number (integer型,NOT NULL)" style="text;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;labelBorderColor=none;fontColor=default;" vertex="1" parent="42">
                     <mxGeometry y="176" width="260" height="30" as="geometry"/>
                 </mxCell>
                 <mxCell id="50" value="user  (reference型,NOT NULL,外部キー)" style="text;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;labelBorderColor=none;fontColor=default;" vertex="1" parent="42">
                     <mxGeometry y="206" width="260" height="30" as="geometry"/>
                 </mxCell>
-                <mxCell id="49" value="items (reference型,NOT NULL,外部キー)" style="text;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;labelBorderColor=none;fontColor=default;" vertex="1" parent="42">
+                <mxCell id="49" value="item (reference型,NOT NULL,外部キー)" style="text;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;labelBorderColor=none;fontColor=default;" vertex="1" parent="42">
                     <mxGeometry y="236" width="260" height="30" as="geometry"/>
                 </mxCell>
-                <mxCell id="54" style="edgeStyle=none;html=1;fontColor=default;startArrow=ERone;startFill=0;endArrow=ERone;endFill=0;startSize=25;endSize=26;entryX=0.57;entryY=1.167;entryDx=0;entryDy=0;entryPerimeter=0;exitX=1.012;exitY=0.367;exitDx=0;exitDy=0;exitPerimeter=0;" edge="1" parent="1" source="45" target="41">
+                <mxCell id="54" style="edgeStyle=none;html=1;fontColor=default;startArrow=ERone;startFill=0;endArrow=ERone;endFill=0;startSize=25;endSize=26;exitX=1.012;exitY=0.467;exitDx=0;exitDy=0;exitPerimeter=0;" edge="1" parent="1" source="46">
                     <mxGeometry relative="1" as="geometry">
-                        <mxPoint x="610" y="660" as="targetPoint"/>
+                        <mxPoint x="601" y="440" as="targetPoint"/>
                         <mxPoint x="470" y="660" as="sourcePoint"/>
                         <Array as="points">
+                            <mxPoint x="470" y="660"/>
                             <mxPoint x="601" y="660"/>
+                            <mxPoint x="601" y="440"/>
                         </Array>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="57" style="edgeStyle=none;html=1;exitX=-0.008;exitY=0.533;exitDx=0;exitDy=0;fontColor=default;startArrow=ERmany;startFill=0;endArrow=ERone;endFill=0;startSize=25;endSize=26;exitPerimeter=0;" edge="1" parent="1" source="45">
+                <mxCell id="57" style="edgeStyle=none;html=1;fontColor=default;startArrow=ERmany;startFill=0;endArrow=ERone;endFill=0;startSize=25;endSize=26;exitX=-0.015;exitY=0.467;exitDx=0;exitDy=0;exitPerimeter=0;" edge="1" parent="1" source="46">
                     <mxGeometry relative="1" as="geometry">
                         <mxPoint x="80" y="440" as="targetPoint"/>
+                        <mxPoint x="190" y="660" as="sourcePoint"/>
                         <Array as="points">
                             <mxPoint x="180" y="660"/>
                             <mxPoint x="150" y="660"/>

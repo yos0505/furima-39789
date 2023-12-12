@@ -32,28 +32,31 @@
 | condition       | string    | null: false                    |     
 | shipping_charge | string    | null: false                    |  
 | shipping_from   | string    | null: false                    |  
-| shipping-day    | date      | null: false                    | 
-| price           | integer   | null: false                    | 
+| shipping-day    | string    | null: false                    | 
+| price           | string    | null: false                    | 
 | user            | reference | null: false, foreign_key: true |
+| order           | reference | null: false, foreign_key: true |
+
 
 ### Association
 
 - belongs_to :user
 - belongs_to :order
 
+※imageはActiveStorageで実装するため含まない。
 
 ## orders テーブル
 
 | Column         | Type       | Options                        |
 | -------------- | ---------- | ------------------------------ |
-| post_cord      | integer    |                                |
+| post_cord      | integer    | null: false                    |
 | prefectures    | string     | null: false                    |
 | city           | string     | null: false                    |
 | street_address | string     | null: false                    |
 | building_name  | string     | null: false                    |
 | phone_number   | integer    | null: false                    |
 | user           | references | null: false, foreign_key: true |
-| items          | references | null: false, foreign_key: true |
+| item           | references | null: false, foreign_key: true |
 
 ### Association
 
