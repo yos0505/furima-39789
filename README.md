@@ -43,6 +43,19 @@
 
 ## orders テーブル
 
+| Column        | Type       | Options                        |
+| ------------- | ---------- | ------------------------------ |
+| user          | references | null: false, foreign_key: true |
+| item          | references | null: false, foreign_key: true |
+
+### Association
+
+- belongs_to :user
+- has_one :items
+- has_one :shipping_address
+
+## shipping_addressesテーブル
+
 | Column           | Type       | Options                        |
 | ---------------- | ---------- | ------------------------------ |
 | post_cord        | string     | null: false                    |
@@ -51,26 +64,10 @@
 | street_address   | string     | null: false                    |
 | building_name    | string     |                                |
 | phone_number     | string     | null: false                    |
-| user             | references | null: false, foreign_key: true |
-| item             | references | null: false, foreign_key: true |
+| order            | references | null: false, foreign_key: true |
 
 ### Association
 
-- belongs_to :user
-- has_one :item
-- has_one :purchasehistory
+- belongs_to :order
 
 ※クレジットカード情報はDBには保存しない。
-
-## purchasehistorysテーブル
-
-| Column        | Type       | Options                   |
-| ------------- | ---------- | ------------------------- |
-| user          | references | null: false, foreign_key: true |
-| item          | references | null: false, foreign_key: true |
-| order         | references | null: false, foreign_key: true |
-| purchase_date | timestamp  | null: false, foreign_key: true |
-
-### Association
-
-- has_one :order
