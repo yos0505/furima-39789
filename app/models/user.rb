@@ -8,8 +8,3 @@ class User < ApplicationRecord
          validates :encrypted_password, presence: true
       
 end
-
-end
-
-
-end
