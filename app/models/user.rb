@@ -4,10 +4,12 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
          validates :nickname, presence: true
-         validates :last_name_kanji, presence: true
-         validates :first_name_kanji, presence: true
-         validates :last_name_kana, presence: true
-         validates :first_name_kana, presence: true
+         with_options presence: true do
+          validates :last_name_kanji, format: {with: /\A[ぁ-んァ-ヶ一-龥々ー]+\z/, message: "is invalid. Input full-width characters."}
+          validates :first_name_kanji, {with: /\A[ぁ-んァ-ヶ一-龥々ー]+\z/, message: "is invalid. Input full-width characters."}
+          validates :last_name_kana, {with: /\A[ァ-ヶー]+\z/, message: "is invalid. Input full-width katakana characters."}
+          validates :first_name_kana, {with: /\A[ァ-ヶー]+\z/, message: "is invalid. Input full-width katakana characters."}
+         end
          validates :birthday, presence: true
          VALID_PASSWORD_REGEX = /\A(?=.*?[a-z])(?=.*?[\d])[a-z\d]+\z/i.freeze
          validates :password, format: { with: VALID_PASSWORD_REGEX, message: 'Password is invalid. Include both letters and numbers'}
