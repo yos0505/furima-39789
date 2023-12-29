@@ -4,9 +4,9 @@ class Item < ApplicationRecord
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to :category
   belongs_to :condition
-  belongs_to :shipping_charge
-  belongs_to :shipping_from
-  belongs_to :shipping_day
+  belongs_to :shipping_charge, class_name: 'ShippingCharge'
+  belongs_to :shipping_from, class_name: 'ShippingFrom'
+  belongs_to :shipping_day, class_name: 'ShippingDay'
   validates :image, :name, :description, :price, presence: true
   validates :category_id, :condition_id, :shipping_charge_id, :shipping_from_id, :shipping_day_id, numericality: { other_than: 1 , message: "can't be blank"} 
 end
