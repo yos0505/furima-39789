@@ -10,6 +10,7 @@ FactoryBot.define do
     price                { 2000 }
 
     after(:build) do |item|
-      item.image.attach(io: File.open('public/images/28241370_s.jpg'), filename: '28241370_s.jpg')
+      item.image.attach(io: File.open('app/assets/images/item-sample.png'), filename: 'item-sample.png')
+    end
   end
 end
