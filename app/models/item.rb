@@ -11,6 +11,6 @@ class Item < ApplicationRecord
   validates :category_id, :condition_id, :shipping_charge_id, :shipping_from_id, :shipping_day_id, numericality: { other_than: 1 , message: "can't be blank"} 
   validates :name, length: { maximum: 40 }
   validates :description, length: { maximum: 1000 }
-  validates :price, numericality: { greater_than_or_equal_to: 300, less_than_or_equal_to: 9999999 },format: { with: /\A[0-9]+\z/ }
+  validates :price, numericality: { greater_than_or_equal_to: 300, less_than_or_equal_to: 9999999, only_integer: true }
 
 end
