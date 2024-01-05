@@ -5,7 +5,6 @@ ruby "3.2.0"
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem "rails", "~> 7.0.0"
-
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
 gem "sprockets-rails"
 
@@ -82,3 +81,7 @@ group :production do
   gem 'pg'
 end
 gem 'devise'
+gem 'mini_magick'
+gem 'image_processing', '~> 1.2'
+gem 'active_hash'
+gem 'pry-rails'
