@@ -20,11 +20,12 @@ class ItemsController < ApplicationController
   end
 
   if edit
+    @item = Item.find(params[:id])
   end
 
   if update
   end
-  
+
 
   private
 
