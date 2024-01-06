@@ -19,6 +19,13 @@ class ItemsController < ApplicationController
     end
   end
 
+  if edit
+  end
+
+  if update
+  end
+  
+
   private
 
   def item_params
