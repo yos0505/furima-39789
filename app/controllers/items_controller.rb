@@ -18,11 +18,17 @@ class ItemsController < ApplicationController
     end
   end
 
-  if edit
+  def edit
     @item = Item.find(params[:id])
   end
 
-  if update
+  def update
+    @item = Item.find(params[:id])
+    if @item.update(item_params)
+      redirect_to root_path
+    else
+      render :edit, status: :unprocessable_entity
+    end
   end
 
 
