@@ -43,7 +43,7 @@ end
 
 def move_to_index
   item = Item.find(params[:id])
-  edirect_to root_path unless user_signed_in? && current_user == item.user
+  redirect_to root_path unless current_user == item.user
 end
 
 def set_item
