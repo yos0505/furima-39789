@@ -7,6 +7,9 @@ class OrdersController < ApplicationController
 
 
   def create
+    @oder = Oder.create(oder_params)
+    Shipping_address.create(shipping_address_params)
+    redirect_to root_path
   end
 
   def order_params
