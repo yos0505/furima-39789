@@ -8,5 +8,13 @@ class OrdersController < ApplicationController
 
   def create
   end
+
+  def order_params
+    params.require(:order).permit(:user, :item).merge(user_id: current_user.id)
+  end
+
+  def shipping_address_params
+    params.require(:shipping_address).permit(:post_cord, :shipping_from_id, :city, :street_address, :phone_number, :order).merge(order_id: @order.id)
+  end
   
 end
