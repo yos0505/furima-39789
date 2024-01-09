@@ -9,7 +9,7 @@ class OrdersController < ApplicationController
 
   def create
     @order = Order.create(order_params)
-    Shipping_address.create(shipping_address_params)
+    ShippingAddress.create(shipping_address_params)
     redirect_to root_path
   end
 
