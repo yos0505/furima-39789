@@ -2,12 +2,13 @@ class OrdersController < ApplicationController
   before_action :authenticate_user!, except: :index
 
   def index
-    @oder = Oder.new
+    @items = Item.all
+    @order = Order.new
   end
 
 
   def create
-    @oder = Oder.create(oder_params)
+    @order = Order.create(order_params)
     Shipping_address.create(shipping_address_params)
     redirect_to root_path
   end
