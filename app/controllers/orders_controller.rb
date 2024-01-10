@@ -11,6 +11,8 @@ class OrdersController < ApplicationController
     @order = Order.create(order_params)
     ShippingAddress.create(shipping_address_params)
     redirect_to root_path
+  else
+    render :create, status: :unprocessable_entity
   end
 
   def order_params
