@@ -9,4 +9,7 @@ class OrderShippingAddress
     validates :phone_number, format: { with: /\A\d{10,11}\z/ }
     validates :shipping_from_id, :city, :street_address
   end
+
+  def save
+    order = Order.create(user_id: user_id, item_id,: item_id)
 end
