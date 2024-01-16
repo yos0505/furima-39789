@@ -7,7 +7,8 @@ class OrderShippingAddress
     validates :item_id
     validates :post_cord, format: { with: /\A\d{3}[-]\d{4}\z/ } 
     validates :phone_number, format: { with: /\A\d{10,11}\z/ }
-    validates :shipping_from_id, :city, :street_address
+    validates :city, :street_address
+    validates :shipping_from_id, numericality: { other_than: 1 , message: "can't be blank"} 
   end
 
   def save
