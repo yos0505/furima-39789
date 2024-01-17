@@ -24,6 +24,7 @@ class ItemsController < ApplicationController
   end
 
   def edit
+    redirect_to root_path if @item.order.present?
   end
 
   def update
@@ -45,14 +46,14 @@ class ItemsController < ApplicationController
 
   def item_params
     params.require(:item).permit(:image, :name, :description, :category_id, :condition_id, :shipping_charge_id, :shipping_from_id, :shipping_day_id, :price).merge(user_id: current_user.id)
-end
+  end
 
-def move_to_index
-  item = Item.find(params[:id])
-  redirect_to root_path unless current_user == item.user
-end
+  def move_to_index
+    item = Item.find(params[:id])
+    redirect_to root_path unless current_user == item.user
+  end
 
-def set_item
-  @item = Item.find(params[:id])
-end
+  def set_item
+    @item = Item.find(params[:id])
+  end
 end

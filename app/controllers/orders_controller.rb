@@ -1,10 +1,13 @@
 class OrdersController < ApplicationController
   before_action :authenticate_user!, except: :index
-
+  
   def index
     @item = Item.find(params[:item_id])
     @order = Order.new
     @order_shipping_address = OrderShippingAddress.new
+    if @item.user_id == current_user.id || @item.order.present?
+      redirect_to root_path
+    end
   end
 
   def create
@@ -23,5 +26,4 @@ class OrdersController < ApplicationController
   def order_params
     params.require(:order_shipping_address).permit(:post_cord, :shipping_from_id, :city, :street_address, :phone_number).merge(user_id: current_user.id, item_id: params[:item_id])
   end
-
 end
