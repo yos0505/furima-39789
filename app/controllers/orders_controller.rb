@@ -14,12 +14,6 @@ class OrdersController < ApplicationController
     @item = Item.find(params[:item_id])
     @order_shipping_address = OrderShippingAddress.new(order_params)
     if  @order_shipping_address.valid?
-      Payjp.api_key = "sk_test_f9f13abea01fb57d94e1acf3"
-      Payjp::Charge.create(
-        amount: order_params[:price],  # 商品の値段
-        card: order_params[:token],    # カードトークン
-        currency: 'jpy'                 # 通貨の種類（日本円）
-      )
        @order_shipping_address.save
        redirect_to root_path
     else
