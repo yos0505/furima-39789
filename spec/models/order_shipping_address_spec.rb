@@ -8,7 +8,7 @@ RSpec.describe OrderShippingAddress, type: :model do
 
   describe '購入者情報の保存' do
     context '内容に問題ない場合' do
-      it 'すべての値が正しく入力されていれば保存できること' do
+      it 'すべての値が正しく入力されtokenがあれば保存できること' do
         expect(@order_shipping_address).to be_valid
       end
       it 'building_nameは空でも保存できること' do
@@ -52,6 +52,11 @@ RSpec.describe OrderShippingAddress, type: :model do
         @order_shipping_address.phone_number = '１23456789'
         @order_shipping_address.valid?
         expect(@order_shipping_address.errors.full_messages).to include("Phone number is invalid")
+      end
+      it "tokenが空では登録できないこと" do
+        @order.token = nil
+        @order.valid?
+        expect(@order.errors.full_messages).to include("Token can't be blank")
       end
     end
   end
