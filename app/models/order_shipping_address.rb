@@ -9,6 +9,7 @@ class OrderShippingAddress
     validates :phone_number, format: { with: /\A\d{10,11}\z/ }
     validates :city, :street_address
     validates :shipping_from_id, numericality: { other_than: 1 , message: "can't be blank"} 
+    validates :token
   end
 
   def save
