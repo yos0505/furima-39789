@@ -2,6 +2,7 @@ class OrdersController < ApplicationController
   before_action :authenticate_user!, except: :index
   
   def index
+    gon.public_key = ENV["PAYJP_PUBLIC_KEY"]
     @item = Item.find(params[:item_id])
     @order = Order.new
     @order_shipping_address = OrderShippingAddress.new
